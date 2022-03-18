@@ -1,0 +1,56 @@
+{% extends 'legaltech_app/base.html' %}
+{% load static %}
+{% block contenido %}
+        <div class="col-sm-8">
+            <div class="card"style="width: fit-content;">
+                <div class="card-header">
+                    <h3>Listado de demandas</h3>
+                </div>
+                <div class="card-body" >
+                 {% for x in obj %}
+                 <table class="table">
+                     <thead>
+                         <tr>
+                             <th>Id</th>
+                             <th>Fecha</th>
+                             <th>Hora</th>
+                             <th>Tipo de demanda</th>
+                             <th>Rut demandado</th>
+                             <th>Nombre demandado</th>
+                             <th>Apellido demandado</th>
+                             <th>Telefono demandado</th>
+                             <th>Comuna demandado</th>
+                             <th>Rut demandante</th>
+                             <th>Nombre demandante</th>
+                             <th>Apellido demandante</th>
+                             <th>Telefono demandante</th>
+                             <th>Comuna demandante</th>
+                             <th>Detalle demanda</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td scope="row">{{x.Id}}</td>
+                             <td>{{x.Fecha}}</td>
+                             <td>{{x.Hora}}</td>
+                             <td>{{x.get_Tipo_de_demanda_display}}</td>
+                             <td>{{x.Rut_demandado}}</td>
+                             <td>{{x.Nombre_demandado}}</td>
+                             <td>{{x.Apellido_demandado}}</td>
+                             <td>{{x.Telefono_demandado}}</td>
+                             <td>{{x.get_Comuna_demandado_display}}</td>
+                             <td>{{x.Rut_demandante}}</td>
+                             <td>{{x.Nombre_demandante}}</td>
+                             <td>{{x.Apellido_demandante}}</td>
+                             <td>{{x.Telefono_demandante}}</td>
+                             <td>{{x.get_Comuna_demandante_display}}</td>
+                             <td>{{x.Detalle_demanda}}</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 
+                 {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock contenido %}
