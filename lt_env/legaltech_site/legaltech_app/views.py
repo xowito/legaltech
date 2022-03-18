@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from.models import Demanda
+from .models import Demanda
+from .forms import demanda_form
 # Create your views here.
 def home(request):
-    return render(request,'legaltech_app/home.html')
+    formulario = demanda_form(request.POST)
+    data={"form":formulario}
+    return render(request,'legaltech_app/home.html',data)
 
 
 def demandas(request):

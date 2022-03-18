@@ -1,4 +1,5 @@
 {% extends 'legaltech_app/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block contenido %}
         <div class="col-sm-8">
@@ -12,38 +13,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-5">
-                                <div class="form-group">
-                                  <label for="">asd</label>
-                                  <input type="text"
-                                    class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                                  <small id="helpId" class="form-text text-muted">Help text</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">asd</label>
-                                    <input type="text"
-                                      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                                    <small id="helpId" class="form-text text-muted">Help text</small>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="">asd</label>
-                                    <input type="text"
-                                      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                                    <small id="helpId" class="form-text text-muted">Help text</small>
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="">asd</label>
-                                    <input type="text"
-                                      class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-                                    <small id="helpId" class="form-text text-muted">Help text</small>
-                                  </div>
-                            </div>
-                            <div class="col-sm-7">
-                                <div class="form-group">
-                                    <label for="detalle">Detalle de la demanda</label>
-                                    <textarea
-                                      class="form-control" name="detalle" id="detalle" rows="10" cols="40">
-                                    </textarea>
-                                  </div>
+                              <form action="" method="post">{% csrf_token %}
+                                {{ form | crispy }} 
+                                <input type="submit" value="Enviar">
+                              </form>
+                                      
                             </div>
                         </div>
                     </div>
