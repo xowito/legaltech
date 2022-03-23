@@ -5,8 +5,7 @@ from .forms import demanda_form
 def home(request):
     formulario = demanda_form(request.POST)
     data={"form":formulario}
-    return render(request,'legaltech_app/home.html',data)
-
+    return render (request, 'legaltech_app/nueva_demanda.html',data)
 
 def demandas(request):
     demanda = Demanda.objects.all()
