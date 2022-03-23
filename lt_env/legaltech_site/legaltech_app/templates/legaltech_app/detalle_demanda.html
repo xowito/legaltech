@@ -1,0 +1,52 @@
+{% extends 'legaltech_app/base.html' %}
+{% load static %}
+{% block contenido %}
+<div class="col-sm-8 mb-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h3>Info demanda</h3>
+                    <p><strong>id:</strong>&nbsp;{{obj.Id}}</p>
+                    <p><strong>Fecha:</strong> &nbsp;{{obj.Fecha}}</p>   
+                    <p><strong>Hora:</strong> &nbsp;{{obj.Hora}}</p>    
+                    <p><strong>Tipo de demanda:</strong> &nbsp;{{obj.get_Tipo_de_demanda_display}}</p>   
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-5">
+                    <h3>Info demandado</h3>
+                    <p><strong>Rut:</strong>&nbsp;{{obj.Rut_demandado}}</p>
+                    <p><strong>Nombre:</strong>&nbsp;{{obj.Nombre_demandado}}</p>    
+                    <p><strong>Apellido:</strong>&nbsp;{{obj.Apellido_demandado}}</p>    
+                    <p><strong>Telefono:</strong>&nbsp;{{obj.Telefono_demandado}}</p>    
+                    <p><strong>Comuna:</strong>&nbsp;{{obj.get_Comuna_demandado_display}}</p>    
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-5">
+                    <h3>Info demandante</h3>
+                    <p><strong>Rut:</strong>&nbsp;{{obj.Rut_demandante}}</p>
+                    <p><strong>Nombre:</strong>&nbsp;{{obj.Nombre_demandante}}</p>    
+                    <p><strong>Apellido:</strong>&nbsp;{{obj.Apellido_demandante}}</p>    
+                    <p><strong>Telefono:</strong>&nbsp;{{obj.Telefono_demandante}}</p>    
+                    <p><strong>Comuna:</strong>&nbsp;{{obj.get_Comuna_demandante_display}}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-5">
+                    <h3>Detalle de la demanda</h3>
+                    <h5>{{obj.Detalle_demanda}}</h5>
+                </div>
+            </div>
+            
+           
+           
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}

@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body">
                  {% for x in obj %}
-                 <table class="table" cellpadding="0" cellspacing="0" border="0">
+                 <table class="table">
                      <thead>
                          <tr>
                              <th>Id</th>
@@ -18,14 +18,10 @@
                              <th>Rut demandado</th>
                              <th>Nombre demandado</th>
                              <th>Apellido demandado</th>
-                             <th>Telefono demandado</th>
-                             <th>Comuna demandado</th>
                              <th>Rut demandante</th>
                              <th>Nombre demandante</th>
                              <th>Apellido demandante</th>
-                             <th>Telefono demandante</th>
-                             <th>Comuna demandante</th>
-                             <th>Detalle demanda</th>
+                             <th>Detalle</th>
                          </tr>
                      </thead>
                      <tbody>
@@ -37,14 +33,10 @@
                              <td>{{x.Rut_demandado}}</td>
                              <td>{{x.Nombre_demandado}}</td>
                              <td>{{x.Apellido_demandado}}</td>
-                             <td>{{x.Telefono_demandado}}</td>
-                             <td>{{x.get_Comuna_demandado_display}}</td>
                              <td>{{x.Rut_demandante}}</td>
                              <td>{{x.Nombre_demandante}}</td>
                              <td>{{x.Apellido_demandante}}</td>
-                             <td>{{x.Telefono_demandante}}</td>
-                             <td>{{x.get_Comuna_demandante_display}}</td>
-                             <td>{{x.Detalle_demanda}}</td>
+                             <td><a href="{% url 'detalle_demanda' x.Id %}"><i class="material-icons">preview</i>ver</a></td>
                          </tr>
                      </tbody>
                  </table>

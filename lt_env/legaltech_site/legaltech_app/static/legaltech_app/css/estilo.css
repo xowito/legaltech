@@ -1,0 +1,6 @@
+div#div_id_Id,div#div_id_Hora,div#div_id_Hora,div#div_id_Tipo_de_demanda,div#div_id_Rut_demandado,
+div#div_id_Nombre_demandado,div#div_id_Apellido_demandado,div#div_id_Telefono_demandado,div
+#div_id_Comuna_demandado,div#div_id_Rut_demandante,div#div_id_Nombre_demandante,div#div_id_Apellido_demandante{
+    justify-content: space-between!important;
+    margin: 500px!important;
+}
