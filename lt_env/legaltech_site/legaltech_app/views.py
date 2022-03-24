@@ -23,10 +23,24 @@ def demandas(request):
     return render(request,'legaltech_app/demandas.html',data)
 
 def detalle_demanda(request,id):
-    
     detalle = Demanda.objects.get(Id=id)
     data = {"obj":detalle}
     return render(request,'legaltech_app/detalle_demanda.html',data)
     
+def editar_demanda(request,id):
+    demanda = get_object_or_404(Demanda,Id=id)
+    data = {
+        "form":demanda_form(instance=demanda)
+    }
+    if request.method == 'POST':
+        formulario = demanda_form(data=request.POST, instance=demanda)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(to="demandas")
+        data["form"]=formulario
+    return render(request,'legaltech_app/editar_demanda.html',data)
 
-    
+def eliminar_demanda(request,id):
+    demanda = get_object_or_404(Demanda,Id=id)
+    demanda.delete()
+    return redirect(to="demandas")

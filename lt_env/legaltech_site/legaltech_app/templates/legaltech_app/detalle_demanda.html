@@ -12,6 +12,10 @@
                     <p><strong>Hora:</strong> &nbsp;{{obj.Hora}}</p>    
                     <p><strong>Tipo de demanda:</strong> &nbsp;{{obj.get_Tipo_de_demanda_display}}</p>   
                 </div>
+                <div class="col-sm-5" style="text-align: center;justify-content: space-between; margin-top:10%">
+                   <a  href="{% url 'editar_demanda' obj.Id %}"><button class="btn btn-button btn-warning"><i class="fa fa-pencil"></i>&nbsp;Editar</button></a>
+                   <a  href="{% url 'eliminar_demanda' obj.Id %}"><button class="btn btn-button btn-danger"><i class="fa fa-trash"></i>&nbsp;Eliminar</button></a> 
+                </div>
             </div>
             <hr>
             <div class="row">

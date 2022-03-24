@@ -4,7 +4,7 @@ from django.db import models
 tipos_de_demanda = [
     ('1','Demanda de marca'),
 	('2','Demanda de linea'),
-	('3', 'Demanda de empresa'),
+	('3','Demanda de empresa'),
 	('4','Demanda global'),
 	('5','Demanda individual'),
 	('6','Demanda de segmento'),
