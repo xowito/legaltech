@@ -15,9 +15,9 @@ comunas = [
     ('1','Talcahuano'),
 	('2','Concepcion'),
 	('3','Chiguayante'),
-	]
+    ('4','Hualpen'),]
 class Demanda(models.Model):
-    Id = models.IntegerField(primary_key = True)
+    Id = models.IntegerField(primary_key = True)#edit to charfield
     Hora = models.CharField (max_length=6)
     Fecha = models.DateField(auto_now_add=True)
     Tipo_de_demanda = models.CharField(default=1,max_length=1, choices = tipos_de_demanda)
