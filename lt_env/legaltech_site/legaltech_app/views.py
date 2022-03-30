@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Demanda
-from .forms import demanda_form
+from .forms import demanda_form, registro_form
+from django.contrib.auth import authenticate, login
 # Create your views here.
 def home(request):
     return render(request,'legaltech_app/home.html')
-
+def welcome(request):
+    return render(request,'legaltech_app/welcome.html')
 
 def nueva_demanda(request):
     formulario = demanda_form()
@@ -44,3 +46,16 @@ def eliminar_demanda(request,id):
     demanda = get_object_or_404(Demanda,Id=id)
     demanda.delete()
     return redirect(to="demandas")
+
+def registro(request):
+    data={"form": registro_form()}
+    
+    if request.method =='POST':
+        formulario = registro_form(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            return redirect(to="login")
+        data['form'] = formulario
+    return render(request,'registration/registro.html',data)

@@ -2,16 +2,16 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block contenido %}
-        <div class="col-sm-8 mb-4" style="text-align: center;">
-            <div class="card">
+        <div class="col-sm-8 mb-5 mt-5">
+            <div class="card" style="margin-left:20% ;">
                 <div class="card-header">
-                    <h3>Crear nueva demanda</h3>
+                    <h3>Ingresar nueva demanda</h3>
                 </div>
                 <div class="card-body">
                     <h6>Datos de la demanda</h6>
                     <form action="" method="post">{% csrf_token %}
                         {{ form | crispy }} 
-                        <input type="submit" value="Enviar">
+                        <input class="btn btn-lg btn-success" type="submit" value="Enviar">
                     </form>
                 </div>
             </div>

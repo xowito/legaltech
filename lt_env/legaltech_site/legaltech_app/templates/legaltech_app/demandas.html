@@ -1,8 +1,8 @@
 {% extends 'legaltech_app/base.html' %}
 {% load static %}
 {% block contenido %}
-        <div class="col-sm-8" >
-            <div class="card"  style="width:fit-content">
+        <div class="col-sm-8 mb-5 mt-5" >
+            <div class="card"  style="width:fit-content; margin-left:20%">
                 <div class="card-header">
                     <h3>Listado de demandas</h3>
                 </div>
@@ -36,7 +36,7 @@
                              <td>{{x.Rut_demandante}}</td>
                              <td>{{x.Nombre_demandante}}</td>
                              <td>{{x.Apellido_demandante}}</td>
-                             <td><a href="{% url 'detalle_demanda' x.Id %}"><i class="material-icons">preview</i>ver</a></td>
+                             <td><a href="{% url 'detalle_demanda' x.Id %}" class="btn" style="color: white;background-color:#4A76E5;"><i class="fa fa-fw fa-eye"></i>Ver</a></td>
                          </tr>
                      </tbody>
                  </table>
