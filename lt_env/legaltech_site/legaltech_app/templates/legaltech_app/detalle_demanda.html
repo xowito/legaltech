@@ -1,5 +1,24 @@
 {% extends 'legaltech_app/base.html' %}
 {% load static %}
+{% block js %}
+<script>
+    function eliminarDemanda(id){
+        Swal.fire({
+            "title":"Estas seguro de eliminar esta demanda?",
+            "text":"Una vez borrada no se puede deshacer",
+            "icon":"question",
+            "showCancelButton":true,
+            "confirmButtonText":"Si, eliminar",
+            "confirmButtonColor":"red"
+        })
+        .then(function(result){
+            if(result.isConfirmed){
+                window.location.href = "/eliminar_demanda/"+id+"/"
+            }
+        })
+    }
+</script>
+{% endblock js %}
 {% block contenido %}
 <div class="col-sm-8 mb-5 mt-5">
     <div class="card" style="margin-left: 20%;">
@@ -13,8 +32,8 @@
                     <p><strong>Tipo de demanda:</strong> &nbsp;{{obj.get_Tipo_de_demanda_display}}</p>   
                 </div>
                 <div class="col-sm-5" style="text-align: center;justify-content: space-between; margin-top:10%">
-                   <a  href="{% url 'editar_demanda' obj.Id %}"><button class="btn btn-button btn-warning"><i class="fa fa-pencil"></i>&nbsp;Editar</button></a>
-                   <a  href="{% url 'eliminar_demanda' obj.Id %}"><button class="btn btn-button btn-danger"><i class="fa fa-trash"></i>&nbsp;Eliminar</button></a> 
+                   <a class="btn btn-lg btn-warning" href="{% url 'editar_demanda' obj.Id %}"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
+                   <a class="btn btn-lg btn-danger" href="#" onclick="eliminarDemanda({{obj.Id}})"><i class="fa fa-trash"></i>&nbsp;Eliminar</a> 
                 </div>
             </div>
             <hr>

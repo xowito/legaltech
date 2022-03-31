@@ -14,13 +14,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <style>
     .sidebar {
       height: 100%;
-      width: 160px;
-      position: fixed;
+      width: fit-content;
+      position:fixed;
       z-index: 1;
       top: 0;
       left: 0;
@@ -43,10 +44,7 @@
       padding: 0px 10px;
     }
 
-    @media screen and (max-height: 450px) {
-      .sidebar {padding-top: 15px;}
-      .sidebar a {font-size: 18px;}
-    }
+
     .topnav a {
       float: right;
       color: #333;
@@ -72,16 +70,29 @@
             <a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Cerrar sesion</a>
           </div>
         </div>
-        <div class="col-sm-8" style="width:100%">
+        <div class="col-sm-10" style="width:100%">
           <div class="topnav" style="background-color: rgb(226, 222, 222); overflow: hidden">
             {% if user.is_authenticated %}
-            <a href=""><i class="fa fa-fw fa-user"></i> {{user.first_name}}</a>
+            <a href="{% url 'profile' %}"><i class="fa fa-fw fa-user"></i> {{user.first_name}}</a>
             <a href=""><i class="fa fa-fw fa-print"></i>Informes</a>
             <a href=""><i class="fa fa-fw fa-envelope"></i> Casos</a>
             <a href="{% url 'demandas' %}"><i class="fa fa-fw fa-briefcase"></i> Demandas</a>
             {% endif %}
           </div>
         </div>
+        {% if messages %}
+          {% for m in messages %}
+          <script>
+            Swal.fire({
+              "title": "Correcto",
+              "text": "{{m}}",
+              "icon":"success"
+            })
+          </script>
+          {% endfor %}
+        {% endif %}
+        {% block js %}
+        {% endblock js %}
         {% block contenido %}
         {% endblock contenido %}
     </div>

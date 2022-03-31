@@ -1,13 +1,13 @@
 {% extends 'legaltech_app/base.html' %}
 {% load static %}
+
 {% block contenido %}
-        <div class="col-sm-8 mb-5 mt-5" >
+        <div class="col-sm-10 mb-5 mt-5" >
             <div class="card"  style="width:fit-content; margin-left:20%">
                 <div class="card-header">
                     <h3>Listado de demandas</h3>
                 </div>
                 <div class="card-body">
-                 {% for x in obj %}
                  <table class="table">
                      <thead>
                          <tr>
@@ -24,9 +24,11 @@
                              <th>Detalle</th>
                          </tr>
                      </thead>
+                     
                      <tbody>
-                         <tr>
-                             <td scope="row">{{x.Id}}</td>
+                       {% for x in entity %} 
+                         <tr>  
+                             <td>{{x.Id}}</td>
                              <td>{{x.Fecha}}</td>
                              <td>{{x.Hora}}</td>
                              <td>{{x.get_Tipo_de_demanda_display}}</td>
@@ -38,11 +40,11 @@
                              <td>{{x.Apellido_demandante}}</td>
                              <td><a href="{% url 'detalle_demanda' x.Id %}" class="btn" style="color: white;background-color:#4A76E5;"><i class="fa fa-fw fa-eye"></i>Ver</a></td>
                          </tr>
-                     </tbody>
+                        {% endfor %}
+                     </tbody>    
                  </table>
-                 
-                 {% endfor %}
-                </div>
+                {% include 'legaltech_app/paginator.html' %}
+                </div>  
             </div>
         </div>
 {% endblock contenido %}

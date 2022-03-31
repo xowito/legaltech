@@ -33,7 +33,8 @@
                             {% csrf_token %}
                             {{form | crispy}}
 
-                            <input class="btn btn-success" type="submit" value="Ingresar">
+                            <input class="btn btn-success" type="submit" value="Ingresar"> 
+                            <a href="{% url 'registro' %}" style="float: right;">Registrate</a>
                         </form>
                     </div>
                 </div>

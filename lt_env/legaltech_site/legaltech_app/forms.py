@@ -15,4 +15,4 @@ class registro_form(UserCreationForm):
                                widget=forms.TextInput(attrs={'placeholder': 'Rut sin puntos y con guion, ejemplo:12345678-9'}))
     class Meta:
         model = User
-        fields=['username','first_name', 'last_name','password1','password2' ]
+        fields=['username','first_name', 'last_name','email','password1','password2' ]
