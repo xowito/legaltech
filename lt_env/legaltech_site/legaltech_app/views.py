@@ -3,8 +3,7 @@ from .models import Demanda
 from .forms import demanda_form, registro_form
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.core.paginator import Paginator
-from django.http import Http404
+
 # Create your views here.
 def home(request):
     return render(request,'legaltech_app/home.html')
@@ -24,18 +23,20 @@ def nueva_demanda(request):
     return render (request, 'legaltech_app/nueva_demanda.html',data)
 
 def demandas(request):
-    demanda = Demanda.objects.all()
-    page = request.GET.get('page',1)
+    qs = Demanda.objects.all()
+    Id_contains_query = request.GET.get('Id_contiene')
+    Fecha_contiene_query = request.GET.get('Fecha_contiene')
     
-    try:
-        paginator = Paginator(demanda,5)
-        demanda = paginator.page(page)
-    except:
-        raise Http404
     
-    data = {"entity":demanda,
-            "paginator":paginator}
-    return render(request,'legaltech_app/demandas.html',data)
+    if Id_contains_query != '' and Id_contains_query is not None:
+        qs = qs.filter(Id__icontains=Id_contains_query)
+    elif Fecha_contiene_query != '' and Fecha_contiene_query is not None:
+        qs = qs.filter(Fecha__icontains=Fecha_contiene_query)
+    contexto = {
+        'queryset': qs
+    }
+    
+    return render(request,'legaltech_app/demandas.html',contexto)
 
 def detalle_demanda(request,id):
     detalle = Demanda.objects.get(Id=id)

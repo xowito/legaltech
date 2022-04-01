@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'legaltech_app',
     'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [

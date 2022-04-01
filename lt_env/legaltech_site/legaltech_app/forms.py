@@ -1,15 +1,17 @@
-from logging import PlaceHolder
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+
+from legaltech_app.MinimalSplitDateTimeMultiWidget import MinimalSplitDateTimeMultiWidget
 from .models import *
 from django.contrib.auth.models import User
+from django.contrib.admin import widgets
 class demanda_form(forms.ModelForm):
     Detalle_demanda = forms.CharField(max_length= 500,widget=forms.Textarea)
-
+    Fecha = forms.DateTimeField(widget=MinimalSplitDateTimeMultiWidget(attrs={"class":"form-control"}))
     class Meta:
         model=Demanda
         fields= '__all__'
-    
+           
 class registro_form(UserCreationForm):
     username = forms.CharField(max_length=10,label="Rut",
                                widget=forms.TextInput(attrs={'placeholder': 'Rut sin puntos y con guion, ejemplo:12345678-9'}))
