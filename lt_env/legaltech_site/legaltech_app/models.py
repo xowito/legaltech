@@ -18,7 +18,7 @@ comunas = [
 class Demanda(models.Model):
     Id = models.CharField(primary_key = True ,max_length=10)#edit to charfield
     Hora = models.CharField (max_length=6)
-    Fecha = models.DateField(auto_now=False)
+    Fecha = models.DateTimeField(auto_now=False)
     Tipo_de_demanda = models.CharField(default=1,max_length=1, choices = tipos_de_demanda)
     Rut_demandado = models.CharField(max_length=10)
     Nombre_demandado = models.CharField(max_length=50)
