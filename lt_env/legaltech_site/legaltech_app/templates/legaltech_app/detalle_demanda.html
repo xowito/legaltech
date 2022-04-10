@@ -2,7 +2,7 @@
 {% load static %}
 {% block js %}
 <script>
-    function eliminarDemanda(id){
+    function eliminarDemanda(Id){
         Swal.fire({
             "title":"Estas seguro de eliminar esta demanda?",
             "text":"Una vez borrada no se puede deshacer",
@@ -13,14 +13,14 @@
         })
         .then(function(result){
             if(result.isConfirmed){
-                window.location.href = "/eliminar_demanda/"+id+"/"
+                window.location.href = "/eliminar_demanda/"+Id+"/"
             }
         })
     }
 </script>
 {% endblock js %}
 {% block contenido %}
-<div class="col-sm-8 mb-5 mt-5">
+<div class="col-sm-10 mb-5 mt-5">
     <div class="card" style="margin-left: 20%;">
         <div class="card-body">
             <div class="row">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-sm-5" style="text-align: center;justify-content: space-between; margin-top:10%">
                    <a class="btn btn-lg btn-warning" href="{% url 'editar_demanda' obj.Id %}"><i class="fa fa-pencil"></i>&nbsp;Editar</a>
-                   <a class="btn btn-lg btn-danger" href="#" onclick="eliminarDemanda({{obj.Id}})"><i class="fa fa-trash"></i>&nbsp;Eliminar</a> 
+                   <a class="btn btn-lg btn-danger" href="{% url 'eliminar_demanda' obj.Id %}" ><i class="fa fa-trash"></i>&nbsp;Eliminar</a> 
                 </div>
             </div>
             <hr>

@@ -61,20 +61,19 @@
     <div class="row">
         <div class="col-sm-2">
           <div class="sidebar">
+            {% if user.is_authenticated %}
             <a href="{% url 'nueva_demanda' %}"><i class="fa fa-fw fa-plus-circle"></i> Nuevo caso</a>
             <hr>
-            <a href=""><i class="fa fa-fw fa-search"></i> Buscar</a>
+            <a href="{% url 'demandas' %}#search"><i class="fa fa-fw fa-search"></i> Buscar</a>
             <hr>
-            <a href=""><i class="fa fa-fw fa-sort-asc"></i> Ultima demanda</a>
+            <a href="{% url 'ultima_demanda' %}"><i class="fa fa-fw fa-sort-asc"></i> Ultima demanda</a>
             <a href="{% url 'logout' %}"><i class="fa fa-fw fa-sign-out"></i> Cerrar sesion</a>
           </div>
         </div>
         <div class="col-sm-10" style="width:100%">
           <div class="topnav" style="background-color: rgb(226, 222, 222); overflow: hidden">
-            {% if user.is_authenticated %}
             <a href="{% url 'profile' %}"><i class="fa fa-fw fa-user"></i> {{user.first_name}}</a>
-            <a href=""><i class="fa fa-fw fa-print"></i>Informes</a>
-            <a href=""><i class="fa fa-fw fa-envelope"></i> Casos</a>
+            <a href="{% url 'crear_informe' %}"><i class="fa fa-fw fa-print"></i>Informes</a>
             <a href="{% url 'demandas' %}"><i class="fa fa-fw fa-briefcase"></i> Demandas</a>
             {% endif %}
           </div>

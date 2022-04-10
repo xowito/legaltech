@@ -2,4 +2,5 @@ django
 pillow
 django-crispy-forms
 cx_oracle
+reportlab
 #comando para instalar los requirements pip install -r requirements.txt

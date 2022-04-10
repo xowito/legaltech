@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home,demandas,nueva_demanda, detalle_demanda, editar_demanda, eliminar_demanda,welcome, registro, profile
+from .views import home,demandas,nueva_demanda, detalle_demanda, editar_demanda, eliminar_demanda, ultima_demanda,welcome, registro, profile,crear_informe
 
 
 
@@ -12,5 +12,7 @@ urlpatterns = [
     path('editar_demanda/<id>/',editar_demanda,name='editar_demanda'),
     path('eliminar_demanda/<id>/',eliminar_demanda,name='eliminar_demanda'),
     path('registro',registro, name='registro'),
-    path('profile',profile,name='profile')
+    path('profile',profile,name='profile'),
+    path('ultima_demanda',ultima_demanda,name='ultima_demanda'),
+    path('crear_informe',crear_informe, name='crear_informe')
 ]

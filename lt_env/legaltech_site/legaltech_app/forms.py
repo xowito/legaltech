@@ -8,6 +8,8 @@ from django.contrib.admin import widgets
 class demanda_form(forms.ModelForm):
     Detalle_demanda = forms.CharField(max_length= 500,widget=forms.Textarea)
     Fecha = forms.DateTimeField(widget=MinimalSplitDateTimeMultiWidget(attrs={"class":"form-control"}))
+    Telefono_demandado = forms.IntegerField(widget=forms.TextInput(attrs={'type':'tel','pattern':'+[0-9]{3}[0-9]{8}','title':'Debe ser un numero valido'}))
+    Telefono_demandante = forms.IntegerField(widget=forms.TextInput(attrs={'type':'tel','pattern':'+[0-9]{3}[0-9]{8}','title':'Debe ser un numero valido'}))
     class Meta:
         model=Demanda
         fields= '__all__'

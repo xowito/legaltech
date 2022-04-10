@@ -1,6 +1,14 @@
 from django.db import models
 # Create your models here.
-tipos_de_demanda = [
+
+
+class Demanda(models.Model):
+    comunas = [
+    ('1','Talcahuano'),
+	('2','Concepcion'),
+	('3','Chiguayante'),
+    ('4','Hualpen'),]
+    tipos_de_demanda = [
     ('1','Demanda de marca'),
 	('2','Demanda de linea'),
 	('3','Demanda de empresa'),
@@ -10,12 +18,6 @@ tipos_de_demanda = [
 	('7','Demanda de mercado'),
 	('8','Demanda total'),
 	]
-comunas = [
-    ('1','Talcahuano'),
-	('2','Concepcion'),
-	('3','Chiguayante'),
-    ('4','Hualpen'),]
-class Demanda(models.Model):
     Id = models.CharField(primary_key = True ,max_length=10)#edit to charfield
     Hora = models.CharField (max_length=6)
     Fecha = models.DateTimeField(auto_now=False)
