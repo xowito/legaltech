@@ -25,8 +25,6 @@ def nueva_demanda(request):
             formulario.save()
             messages.success(request, "Demanda ingresada correctamente!")
             return redirect(to="demandas")
-        else:
-            messages.error(request, "Hubo un error, vuelve a intentarlo")
     return render (request, 'legaltech_app/nueva_demanda.html',data)
 
 def is_valid_queryparam(param):
